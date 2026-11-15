@@ -1,0 +1,18 @@
+{
+  "deviceType": "DESKTOP",
+  "height": "2394",
+  "htmlCode": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/13817436911919562914/files/e2b8ba73f0e14393a800913afffaa16f:download",
+    "mimeType": "text/html",
+    "name": "projects/13817436911919562914/screens/e2b8ba73f0e14393a800913afffaa16f/fileEntries/html"
+  },
+  "name": "projects/13817436911919562914/screens/e2b8ba73f0e14393a800913afffaa16f",
+  "screenType": "DESIGN",
+  "screenshot": {
+    "downloadUrl": "https://stitch.googleapis.com/v1/projects/13817436911919562914/files/screenshot_0006604b19561cde0503c11e0504081d:download",
+    "mimeType": "image/png",
+    "name": "projects/13817436911919562914/screens/e2b8ba73f0e14393a800913afffaa16f/fileEntries/screenshot"
+  },
+  "title": "Dashboard Jadwal Kuliah",
+  "width": "2560"
+}

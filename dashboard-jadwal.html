@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+<html lang="id"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#005137","surface-bright":"#f8f9ff","inverse-surface":"#213145","surface-container":"#e5eeff","surface":"#f8f9ff","surface-container-high":"#dce9ff","outline-variant":"#c7c4d8","background":"#f8f9ff","error-container":"#ffdad6","secondary-container":"#82f5c1","on-background":"#0b1c30","tertiary-fixed":"#ffdada","inverse-primary":"#c3c0ff","secondary":"#006c4a","secondary-fixed-dim":"#68dba9","on-error-container":"#93000a","tertiary-container":"#c20038","surface-dim":"#cbdbf5","surface-container-highest":"#d3e4fe","on-error":"#ffffff","on-tertiary":"#ffffff","primary-fixed":"#e2dfff","on-primary-fixed-variant":"#3323cc","outline":"#777587","on-tertiary-fixed":"#40000c","inverse-on-surface":"#eaf1ff","secondary-fixed":"#85f8c4","surface-container-low":"#eff4ff","tertiary":"#950029","on-tertiary-fixed-variant":"#920028","on-primary-container":"#dad7ff","on-secondary":"#ffffff","primary-fixed-dim":"#c3c0ff","on-surface-variant":"#464555","primary":"#3525cd","error":"#ba1a1a","surface-container-lowest":"#ffffff","on-secondary-container":"#00714e","surface-tint":"#4d44e3","primary-container":"#4f46e5","on-primary-fixed":"#0f0069","on-surface":"#0b1c30","tertiary-fixed-dim":"#ffb3b6","on-secondary-fixed":"#002114","on-tertiary-container":"#ffd0d2","on-primary":"#ffffff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1rem","margin-desktop":"2rem","margin":"1rem","gutter":"1rem","space-sm":"0.5rem","space-2xl":"2rem","space-2xs":"0.125rem","gutter-desktop":"1.5rem","space-xs":"0.25rem","space-md":"0.75rem","space-xl":"1.5rem"},"fontFamily":{"body-sm":["Inter"],"headline-sm":["Plus Jakarta Sans"],"display":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"code-sm":["JetBrains Mono"],"body-md":["Inter"],"label-md":["Inter"]},"fontSize":{"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.005em","fontWeight":"600"}],"display":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["24px",{"lineHeight":"32px","letterSpacing":"-0.015em","fontWeight":"600"}],"code-sm":["12px",{"lineHeight":"16px","fontWeight":"500"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant/30 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4"><div class="flex items-center gap-space-md min-w-0"><div class="w-11 h-11 rounded-lg bg-primary flex items-center justify-center shrink-0 shadow-sm shadow-primary/20"><span class="material-symbols-outlined text-on-primary text-[24px]">calendar_month</span></div><div class="min-w-0"><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Sistem Data Jadwal Kuliah</h1><p class="hidden md:block font-body-sm text-body-sm text-on-surface-variant truncate">Kelola jadwal perkuliahan, temukan informasi dengan cepat, dan cegah bentrok ruang maupun waktu.</p></div></div><div class="flex items-center gap-space-lg shrink-0"><div class="hidden sm:flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-secondary-container/30 border border-secondary/20"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide">Supabase Connected</span></div><div class="hidden lg:flex items-center gap-space-md pl-space-md border-l border-outline-variant/40"><nav class="flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-bold rounded-lg"><a aria-current="page" class="px-space-md py-1.5 transition-colors bg-surface-container-high text-primary font-bold rounded-lg" data-path="dashboard-jadwal" href="#">Jadwal</a><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="master-ruangan" href="#">Ruangan</a><a class="px-space-md py-1.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="dosen-matakuliah" href="#">Dosen & MK</a></nav></div><div class="flex items-center gap-space-md pl-space-sm sm:pl-space-md border-l sm:border-outline-variant/40"><div class="hidden sm:flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface font-semibold leading-tight">Admin Akademik</span><span class="font-label-sm text-label-sm text-on-surface-variant">Staff BAAK</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full flex-1 pt-20 bg-surface"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-space-xl"><div class="flex flex-col w-full">
+<!-- Status & Academic Header Context -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-xl">
+<div>
+<div class="flex items-center gap-space-xs mb-space-2xs">
+<span class="font-code-sm text-code-sm px-2 py-0.5 rounded bg-surface-container text-primary font-semibold">SEMESTER GENAP 2024/2025</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+          Sinkronisasi Real-Time
+        </span>
+</div>
+<p class="font-headline-md text-headline-md text-on-surface">Pusat Alokasi Ruang & Manajemen Waktu Kuliah</p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="flex items-center gap-space-xs px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Ekspor Rekap (XLSX)</span>
+</button>
+<button class="flex items-center gap-space-xs px-3.5 py-2 rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-label-md text-label-md transition-all shadow-sm" id="btn-sync-trigger" type="button">
+<span class="material-symbols-outlined text-[18px]" id="sync-icon">sync</span>
+<span>Cek Bentrok Global</span>
+</button>
+</div>
+</div>
+<!-- 1. TOP KPI / SUMMARY CARDS -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-lg mb-space-2xl">
+<!-- Card 1: Total Jadwal -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-primary-fixed/20 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Jadwal</span>
+<span class="font-display text-display text-on-surface mt-space-2xs tracking-tight">128</span>
+</div>
+<div class="w-11 h-11 rounded-lg bg-primary-fixed flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">calendar_today</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md border-t border-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Jadwal aktif terdaftar</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-secondary-container/40 px-2 py-0.5 rounded-full font-medium">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+          +4 minggu ini
+        </span>
+</div>
+</div>
+<!-- Card 2: Jadwal Hari Ini -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-24 h-24 bg-surface-variant/40 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Jadwal Hari Ini</span>
+<div class="flex items-baseline gap-2 mt-space-2xs">
+<span class="font-display text-display text-on-surface tracking-tight">18</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">(Senin)</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-lg bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md border-t border-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Perkuliahan berlangsung</span>
+<span class="inline-flex items-center gap-1.5 font-label-sm text-label-sm text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-full font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          Sedang Berlangsung
+        </span>
+</div>
+</div>
+<!-- Card 3: Bebas Bentrok -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden group sm:col-span-2 lg:col-span-1">
+<div class="absolute top-0 right-0 w-24 h-24 bg-secondary-container/20 rounded-bl-full pointer-events-none transition-transform group-hover:scale-110"></div>
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status Integritas</span>
+<div class="flex items-baseline gap-2 mt-space-2xs">
+<span class="font-display text-display text-secondary tracking-tight">96%</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/30 px-2 py-0.5 rounded font-semibold">Bebas Bentrok</span>
+</div>
+</div>
+<div class="w-11 h-11 rounded-lg bg-secondary-container/50 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-md mt-space-md border-t border-surface-container">
+<span class="font-body-sm text-body-sm text-on-surface-variant">123 dari 128 jadwal optimal</span>
+<span class="font-code-sm text-code-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+          5 Perlu Ditinjau
+        </span>
+</div>
+</div>
+</section>
+<!-- 2. MAIN TWO-COLUMN RESPONSIVE LAYOUT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: FORM TAMBAH / EDIT JADWAL (Approx 40% -> 5 cols on lg) -->
+<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-sm p-space-xl relative">
+<!-- Card Header -->
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-6 rounded-full bg-primary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface" id="form-mode-title">Tambah Jadwal</h2>
+</div>
+<button class="px-2.5 py-1 rounded font-label-sm text-label-sm bg-surface-container hover:bg-surface-variant text-on-surface transition-colors cursor-pointer flex items-center gap-1" id="btn-toggle-mode" type="button">
+<span class="material-symbols-outlined text-[14px]">edit_note</span>
+<span id="badge-mode-text">Mode Input Baru</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-lg leading-relaxed">
+        Masukkan data perkuliahan untuk validasi otomatis ketersediaan ruang dan waktu.
+      </p>
+<!-- TC-01 Conflict Error Alert Box -->
+<div class="bg-error-container/40 rounded-xl p-space-md mb-space-lg flex gap-space-sm items-start relative overflow-hidden transition-all duration-300" id="conflict-alert-box">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-error"></div>
+<span class="material-symbols-outlined text-error text-[22px] shrink-0 mt-0.5">error</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="font-headline-sm text-[14px] leading-tight text-on-error-container font-semibold">Ruang sudah digunakan pada jam tersebut!</h4>
+<button class="text-on-error-container/60 hover:text-on-error-container text-label-sm flex items-center" id="btn-dismiss-alert" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-[12px] text-on-error-container/90 mt-1 leading-normal">
+<strong>Bentrok terdeteksi:</strong> Senin, GKB-201, 08.00–10.00 (Mata Kuliah Pemrograman Web - TI-2A).
+          </p>
+<div class="flex items-center gap-1 mt-2 text-on-error-container/70 font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[13px]">shield</span>
+<span>Sistem mencegah penyimpanan jadwal ganda pada ruangan atau kelas yang sama.</span>
+</div>
+</div>
+</div>
+<!-- Main Form -->
+<form class="space-y-space-md" id="schedule-form" onsubmit="event.preventDefault(); handleFormSubmit();">
+<!-- Mata Kuliah -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-mk">
+            Mata Kuliah <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">menu_book</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline/70 transition-all" id="input-mk" placeholder="Contoh: Pemrograman Web" required="" type="text" value="Pemrograman Web"/>
+</div>
+</div>
+<!-- Dosen Pengampu -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-dosen">
+            Dosen Pengampu <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">person</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline/70 transition-all" id="input-dosen" placeholder="Nama dosen pengampu" required="" type="text" value="Rina Kartika, S.Kom."/>
+</div>
+</div>
+<!-- 2-col Subgrid: Kelas & Ruang -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-kelas">
+              Kelas <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">group</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline/70 uppercase transition-all" id="input-kelas" placeholder="Contoh: TI-2A" required="" type="text" value="TI-2A"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-ruang">
+              Ruang Kuliah <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">meeting_room</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline/70 uppercase transition-all" id="input-ruang" placeholder="Contoh: GKB-201" required="" type="text" value="GKB-201"/>
+</div>
+</div>
+</div>
+<!-- Hari Perkuliahan -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="select-hari">
+            Hari Perkuliahan <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">event</span>
+<select class="w-full h-10 pl-9 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none cursor-pointer" id="select-hari">
+<option selected="" value="Senin">Senin</option>
+<option value="Selasa">Selasa</option>
+<option value="Rabu">Rabu</option>
+<option value="Kamis">Kamis</option>
+<option value="Jumat">Jumat</option>
+<option value="Sabtu">Sabtu</option>
+<option value="Minggu">Minggu</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- 2-col Subgrid: Jam Mulai & Jam Selesai -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-jam-mulai">
+              Jam Mulai <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">alarm</span>
+<input class="w-full h-10 pl-9 pr-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" id="input-jam-mulai" required="" type="time" value="08:00"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface" for="input-jam-selesai">
+              Jam Selesai <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">alarm_on</span>
+<input class="w-full h-10 pl-9 pr-2 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" id="input-jam-selesai" required="" type="time" value="10:00"/>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="pt-space-md flex items-center gap-space-sm">
+<button class="flex-1 h-10 px-5 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-[14px] flex items-center justify-center gap-2 transition-all shadow-sm" id="btn-submit-form" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Simpan Jadwal</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-headline-sm text-[14px] flex items-center justify-center gap-1.5 transition-colors" id="btn-reset-form" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span id="btn-reset-text">Reset Form</span>
+</button>
+</div>
+<div class="flex items-center justify-center gap-1.5 pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>
+<span>Validasi otomatis aktif untuk ruangan dan waktu perkuliahan.</span>
+</div>
+</form>
+</section>
+<!-- RIGHT COLUMN: SCHEDULE LIST & DATA TABLE (Approx 60% -> 7 cols on lg) -->
+<section class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-sm p-space-xl flex flex-col min-w-0">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-lg pb-space-sm border-b border-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-6 rounded-full bg-secondary"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Daftar Jadwal Kuliah</h2>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-surface-variant font-semibold" id="counter-pill">
+            Menampilkan 6 dari 128 jadwal
+          </span>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto">
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-variant flex items-center justify-center text-on-surface transition-colors" id="btn-refresh-table" title="Muat ulang data" type="button">
+<span class="material-symbols-outlined text-[18px]">refresh</span>
+</button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-tertiary/10 text-on-surface hover:text-tertiary font-label-sm text-label-sm flex items-center gap-1 transition-colors" id="btn-quick-filter-bentrok" type="button">
+<span class="material-symbols-outlined text-[14px]">filter_alt</span>
+<span>Sorot Masalah</span>
+</button>
+</div>
+</div>
+<!-- Search and Filter Toolbar -->
+<div class="space-y-space-sm mb-space-lg">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+<input class="w-full h-10 pl-9 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-2 focus:ring-primary/20 placeholder:text-outline transition-all" id="table-search" placeholder="Cari mata kuliah, dosen, kelas, atau ruang..." type="text"/>
+<button class="hidden absolute right-2.5 top-2.5 text-outline hover:text-on-surface" id="clear-search-btn" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<!-- Filter Hari -->
+<div>
+<select class="w-full h-8 px-2 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer truncate" id="filter-hari">
+<option value="ALL">Semua Hari</option>
+<option value="Senin">Senin</option>
+<option value="Selasa">Selasa</option>
+<option value="Rabu">Rabu</option>
+<option value="Kamis">Kamis</option>
+<option value="Jumat">Jumat</option>
+</select>
+</div>
+<!-- Filter Kelas -->
+<div>
+<select class="w-full h-8 px-2 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer truncate" id="filter-kelas">
+<option value="ALL">Semua Kelas</option>
+<option value="TI-1A">TI-1A</option>
+<option value="TI-2A">TI-2A</option>
+<option value="TI-2B">TI-2B</option>
+<option value="TI-4A">TI-4A</option>
+</select>
+</div>
+<!-- Filter Status -->
+<div>
+<select class="w-full h-8 px-2 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer truncate" id="filter-status">
+<option value="ALL">Semua Status</option>
+<option value="Bebas Bentrok">Bebas Bentrok</option>
+<option value="Perlu Ditinjau">Perlu Ditinjau</option>
+<option value="Bentrok">Bentrok Ruang</option>
+</select>
+</div>
+<!-- Reset Filter -->
+<div class="flex items-center justify-end">
+<button class="w-full h-8 px-2 rounded-lg bg-surface-container/60 hover:bg-surface-variant text-on-surface-variant font-label-sm text-label-sm flex items-center justify-center gap-1 transition-colors" id="btn-reset-filters" type="button">
+<span class="material-symbols-outlined text-[14px]">filter_alt_off</span>
+<span>Reset Filter</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Responsive Data Table Container -->
+<div class="w-full overflow-x-auto rounded-lg bg-surface-container-lowest shadow-2xs">
+<table class="w-full text-left border-collapse min-w-[640px]" id="schedule-table">
+<thead>
+<tr class="bg-surface-container-high/60 text-on-surface font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-3" scope="col">Mata Kuliah</th>
+<th class="py-3 px-3" scope="col">Dosen</th>
+<th class="py-3 px-2 text-center" scope="col">Kelas</th>
+<th class="py-3 px-3" scope="col">Ruang</th>
+<th class="py-3 px-2" scope="col">Hari</th>
+<th class="py-3 px-3" scope="col">Waktu</th>
+<th class="py-3 px-2 text-center" scope="col">Status</th>
+<th class="py-3 px-2 text-right" scope="col">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface" id="table-body">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group" data-hari="Senin" data-kelas="TI-2A" data-status="Bebas Bentrok">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-fixed/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">code</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Pemrograman Web</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF2104 • 3 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">RK</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Rina Kartika, S.Kom.</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-2A</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-primary font-bold">GKB-201</span>
+</td>
+<td class="py-3 px-2 font-medium">Senin</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">08.00–10.00</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Bebas Bentrok
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Pemrograman Web', 'Rina Kartika, S.Kom.', 'TI-2A', 'GKB-201', 'Senin', '08:00', '10:00')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group" data-hari="Senin" data-kelas="TI-2B" data-status="Bebas Bentrok">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-surface-variant flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">database</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Basis Data</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF2201 • 3 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">AP</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Aditya Pratama, M.Kom.</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-2B</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-primary font-bold">Lab Komputer 1</span>
+</td>
+<td class="py-3 px-2 font-medium">Senin</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">10.00–12.00</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Bebas Bentrok
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Basis Data', 'Aditya Pratama, M.Kom.', 'TI-2B', 'Lab Komputer 1', 'Senin', '10:00', '12:00')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group" data-hari="Selasa" data-kelas="TI-2A" data-status="Bebas Bentrok">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-fixed/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">lan</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Jaringan Komputer</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF2204 • 2 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">DA</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Dwi Ananda, M.T.</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-2A</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-primary font-bold">GKB-201</span>
+</td>
+<td class="py-3 px-2 font-medium">Selasa</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">13.00–15.00</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Bebas Bentrok
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Jaringan Komputer', 'Dwi Ananda, M.T.', 'TI-2A', 'GKB-201', 'Selasa', '13:00', '15:00')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group" data-hari="Rabu" data-kelas="TI-4A" data-status="Bebas Bentrok">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-surface-variant flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Kecerdasan Buatan</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF4102 • 3 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">HW</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Dr. Hendra Wijaya</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-4A</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-primary font-bold">Ruang Teori 3</span>
+</td>
+<td class="py-3 px-2 font-medium">Rabu</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">08.00–10.30</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Bebas Bentrok
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Kecerdasan Buatan', 'Dr. Hendra Wijaya', 'TI-4A', 'Ruang Teori 3', 'Rabu', '08:00', '10:30')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Warning / Perlu Ditinjau -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group bg-amber-50/30" data-hari="Kamis" data-kelas="TI-2B" data-status="Perlu Ditinjau">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-amber-100 flex items-center justify-center text-amber-800 shrink-0">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Rekayasa Perangkat Lunak</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF2209 • 3 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-amber-200/60 flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">SN</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Siti Nurhaliza, M.Cs.</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-2B</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-amber-800 font-bold">GKB-105</span>
+</td>
+<td class="py-3 px-2 font-medium">Kamis</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">09.00–11.30</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-label-sm text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                  Perlu Ditinjau
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Rekayasa Perangkat Lunak', 'Siti Nurhaliza, M.Cs.', 'TI-2B', 'GKB-105', 'Kamis', '09:00', '11:30')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/70 transition-colors group" data-hari="Jumat" data-kelas="TI-1A" data-status="Bebas Bentrok">
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-primary-fixed/60 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+</div>
+<div>
+<span class="font-headline-sm text-[13px] leading-tight block text-on-surface">Algoritma & Struktur Data</span>
+<span class="font-code-sm text-[11px] text-on-surface-variant">IF1102 • 4 SKS</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-1.5">
+<span class="w-5 h-5 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-[10px] text-on-surface font-bold">BS</span>
+<span class="text-on-surface font-medium truncate max-w-[130px]">Budi Santoso, M.Kom.</span>
+</div>
+</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-block px-2 py-0.5 rounded font-code-sm text-[11px] bg-surface-container text-on-surface font-semibold">TI-1A</span>
+</td>
+<td class="py-3 px-3">
+<span class="font-headline-sm text-[12px] text-primary font-bold">Lab Komputer 2</span>
+</td>
+<td class="py-3 px-2 font-medium">Jumat</td>
+<td class="py-3 px-3 font-code-sm text-[12px] text-on-surface whitespace-nowrap">08.00–10.30</td>
+<td class="py-3 px-2 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary font-label-sm text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Bebas Bentrok
+                </span>
+</td>
+<td class="py-3 px-2 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-primary hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors" onclick="editRow('Algoritma & Struktur Data', 'Budi Santoso, M.Kom.', 'TI-1A', 'Lab Komputer 2', 'Jumat', '08:00', '10:30')" title="Edit Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">edit</span>
+</button>
+<button class="w-7 h-7 rounded bg-surface-container/60 hover:bg-error-container hover:text-error text-on-surface-variant flex items-center justify-center transition-colors" onclick="deleteRow(this)" title="Hapus Jadwal" type="button">
+<span class="material-symbols-outlined text-[15px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Empty State View (hidden by default) -->
+<div class="hidden flex-col items-center justify-center py-12 px-4 text-center" id="table-empty-state">
+<div class="w-14 h-14 rounded-full bg-surface-container flex items-center justify-center text-outline mb-3">
+<span class="material-symbols-outlined text-[28px]">search_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Tidak ada jadwal yang cocok</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm mb-4">
+          Tidak ditemukan jadwal perkuliahan yang memenuhi kriteria pencarian atau filter yang Anda terapkan.
+        </p>
+<button class="px-4 py-2 rounded-lg bg-primary hover:bg-primary/90 text-on-primary font-label-md text-label-md transition-all shadow-sm flex items-center gap-1.5" onclick="resetAllFilters()" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+<span>Hapus Semua Filter</span>
+</button>
+</div>
+<!-- Table Footer & Pagination -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pt-space-lg mt-space-sm border-t border-surface-container">
+<div class="flex items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Tampilkan:</span>
+<select class="h-8 px-2 rounded bg-surface-container text-on-surface font-label-sm text-label-sm focus:outline-none" id="select-row-limit">
+<option value="6">6 baris</option>
+<option value="10">10 baris</option>
+<option value="25">25 baris</option>
+<option value="50">50 baris</option>
+</select>
+<span class="font-body-sm text-body-sm text-on-surface-variant pl-2">Halaman 1 dari 16</span>
+</div>
+<div class="flex items-center gap-1 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container/40 text-on-surface-variant/40 font-label-md text-label-md flex items-center gap-1 cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Sebelumnya</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center shadow-xs" type="button">
+            1
+          </button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
+            2
+          </button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container text-on-surface font-label-md text-label-md flex items-center justify-center transition-colors" type="button">
+            3
+          </button>
+<span class="text-on-surface-variant px-1">...</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors" type="button">
+<span>Berikutnya</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive Client-side Scripting -->
+<script>
+    // State management for form edit/create toggle
+    let isEditMode = false;
+
+    const formModeTitle = document.getElementById('form-mode-title');
+    const badgeModeText = document.getElementById('badge-mode-text');
+    const btnSubmitForm = document.getElementById('btn-submit-form');
+    const btnResetText = document.getElementById('btn-reset-text');
+    const conflictAlert = document.getElementById('conflict-alert-box');
+    const btnToggleMode = document.getElementById('btn-toggle-mode');
+    const btnDismissAlert = document.getElementById('btn-dismiss-alert');
+
+    const inputMK = document.getElementById('input-mk');
+    const inputDosen = document.getElementById('input-dosen');
+    const inputKelas = document.getElementById('input-kelas');
+    const inputRuang = document.getElementById('input-ruang');
+    const selectHari = document.getElementById('select-hari');
+    const inputJamMulai = document.getElementById('input-jam-mulai');
+    const inputJamSelesai = document.getElementById('input-jam-selesai');
+
+    // Toggle Form Mode (Create vs Edit)
+    btnToggleMode.addEventListener('click', () => {
+      setMode(!isEditMode);
+    });
+
+    btnDismissAlert.addEventListener('click', () => {
+      conflictAlert.classList.add('hidden');
+    });
+
+    function setMode(editState) {
+      isEditMode = editState;
+      if (isEditMode) {
+        formModeTitle.textContent = 'Edit Data Jadwal';
+        badgeModeText.textContent = 'Mode Edit Aktif';
+        btnSubmitForm.innerHTML = '<span class="material-symbols-outlined text-[18px]">update</span><span>Perbarui Jadwal</span>';
+        btnResetText.textContent = 'Batal Edit';
+        conflictAlert.classList.remove('hidden');
+      } else {
+        formModeTitle.textContent = 'Tambah Jadwal';
+        badgeModeText.textContent = 'Mode Input Baru';
+        btnSubmitForm.innerHTML = '<span class="material-symbols-outlined text-[18px]">save</span><span>Simpan Jadwal</span>';
+        btnResetText.textContent = 'Reset Form';
+        conflictAlert.classList.add('hidden');
+      }
+    }
+
+    document.getElementById('btn-reset-form').addEventListener('click', () => {
+      document.getElementById('schedule-form').reset();
+      setMode(false);
+    });
+
+    // Edit row bridge
+    function editRow(mk, dosen, kelas, ruang, hari, jamMulai, jamSelesai) {
+      inputMK.value = mk;
+      inputDosen.value = dosen;
+      inputKelas.value = kelas;
+      inputRuang.value = ruang;
+      selectHari.value = hari;
+      inputJamMulai.value = jamMulai;
+      inputJamSelesai.value = jamSelesai;
+      setMode(true);
+      window.scrollTo({ top: 120, behavior: 'smooth' });
+    }
+
+    // Delete row bridge
+    function deleteRow(btn) {
+      const row = btn.closest('tr');
+      if (confirm('Konfirmasi: Apakah Anda yakin ingin menghapus jadwal perkuliahan ini?')) {
+        row.style.opacity = '0.3';
+        setTimeout(() => {
+          row.remove();
+          updateTableCounts();
+        }, 200);
+      }
+    }
+
+    // Table Filtering logic
+    const searchInput = document.getElementById('table-search');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const filterHari = document.getElementById('filter-hari');
+    const filterKelas = document.getElementById('filter-kelas');
+    const filterStatus = document.getElementById('filter-status');
+    const tableBody = document.getElementById('table-body');
+    const emptyState = document.getElementById('table-empty-state');
+    const tableElement = document.getElementById('schedule-table');
+    const counterPill = document.getElementById('counter-pill');
+
+    function applyFilters() {
+      const q = searchInput.value.toLowerCase().trim();
+      const hariVal = filterHari.value;
+      const kelasVal = filterKelas.value;
+      const statusVal = filterStatus.value;
+
+      clearSearchBtn.classList.toggle('hidden', q.length === 0);
+
+      const rows = tableBody.querySelectorAll('tr');
+      let visibleCount = 0;
+
+      rows.forEach(row => {
+        const textContent = row.textContent.toLowerCase();
+        const rowHari = row.getAttribute('data-hari');
+        const rowKelas = row.getAttribute('data-kelas');
+        const rowStatus = row.getAttribute('data-status');
+
+        const matchesQuery = !q || textContent.includes(q);
+        const matchesHari = (hariVal === 'ALL') || (rowHari === hariVal);
+        const matchesKelas = (kelasVal === 'ALL') || (rowKelas === kelasVal);
+        const matchesStatus = (statusVal === 'ALL') || (rowStatus.includes(statusVal));
+
+        if (matchesQuery && matchesHari && matchesKelas && matchesStatus) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        tableElement.classList.add('hidden');
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+      } else {
+        tableElement.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+        emptyState.classList.remove('flex');
+      }
+
+      counterPill.textContent = `Menampilkan ${visibleCount} dari 128 jadwal`;
+    }
+
+    function resetAllFilters() {
+      searchInput.value = '';
+      filterHari.value = 'ALL';
+      filterKelas.value = 'ALL';
+      filterStatus.value = 'ALL';
+      applyFilters();
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    filterHari.addEventListener('change', applyFilters);
+    filterKelas.addEventListener('change', applyFilters);
+    filterStatus.addEventListener('change', applyFilters);
+    document.getElementById('btn-reset-filters').addEventListener('click', resetAllFilters);
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      applyFilters();
+      searchInput.focus();
+    });
+
+    document.getElementById('btn-quick-filter-bentrok').addEventListener('click', () => {
+      filterStatus.value = 'Perlu Ditinjau';
+      applyFilters();
+    });
+
+    // Refresh rotation animation
+    document.getElementById('btn-refresh-table').addEventListener('click', function() {
+      const icon = this.querySelector('.material-symbols-outlined');
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+      }, 700);
+    });
+
+    // Global sync button feedback
+    document.getElementById('btn-sync-trigger').addEventListener('click', function() {
+      const icon = document.getElementById('sync-icon');
+      icon.classList.add('animate-spin');
+      setTimeout(() => {
+        icon.classList.remove('animate-spin');
+        alert('Pengecekan selesai: 123 jadwal valid, 5 jadwal memerlukan penyesuaian ruangan.');
+      }, 800);
+    });
+
+    function handleFormSubmit() {
+      const ruang = inputRuang.value.toUpperCase();
+      const hari = selectHari.value;
+      const mk = inputMK.value;
+      
+      // TC-01 Mock logic trigger
+      if (hari === 'Senin' && ruang === 'GKB-201') {
+        conflictAlert.classList.remove('hidden');
+        window.scrollTo({ top: 80, behavior: 'smooth' });
+        return;
+      }
+
+      alert(`Sukses: Jadwal perkuliahan "${mk}" berhasil disimpan dan diverifikasi.`);
+      document.getElementById('schedule-form').reset();
+      setMode(false);
+    }
+
+    function updateTableCounts() {
+      const visible = tableBody.querySelectorAll('tr:not([style*="display: none"])').length;
+      counterPill.textContent = `Menampilkan ${visible} dari 128 jadwal`;
+    }
+  </script>
+</div></div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-space-lg"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Biro Administrasi Akademik & Kemahasiswaan (BAAK). Terintegrasi Database Cloud.</p><div class="flex items-center gap-space-md font-label-sm text-label-sm text-on-surface-variant"><span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-secondary">verified_user</span>Audit Log Aktif</span><span>v2.4.0-stable</span></div></div></footer></body></html>
